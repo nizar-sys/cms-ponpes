@@ -3669,7 +3669,7 @@ var History = /*#__PURE__*/function () {
 
       if (this.stack.length > this.stackOffset) {
         this.stack = this.stack.slice(0, this.stackOffset);
-      } // Create new snapshot and push it to the end
+      } // Tambah Data snapshot and push it to the end
 
 
       this.stack.push(this.makeSnapshot()); // If the stack size reachs to the limit, then slice it

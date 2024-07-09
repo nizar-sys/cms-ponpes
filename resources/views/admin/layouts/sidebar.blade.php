@@ -47,13 +47,9 @@
                         class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
 
-
-            <li class="menu-header">MENU TAMBAHAN</li>
-            <li class="nav-item">
-                <a href="#" class="nav-link"><i class="fas fa-columns"></i><span>Data Guru</span></a>
+            <li class="nav-item {{ setSidebarActive(['admin.teachers.*']) }}">
+                <a href="{{ route('admin.teachers.index') }}" class="nav-link"><i class="fas fa-columns"></i><span>Data Guru</span></a>
             </li>
-
-            <li class="menu-header">END MENU YANG DIBUTUHKAN</li>
 
             <li class="nav-item dropdown {{ setSidebarActive(['admin.hero.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
@@ -218,14 +214,6 @@
                 </a>
             </li>
             {{-- Setting --}}
-
-
-
-            {{-- <li>
-                <a class="nav-link" href="blank.html"><i class="far fa-square"></i>
-                    <span>Blank Page</span>
-                </a>
-            </li> --}}
         </ul>
     </aside>
 </div>

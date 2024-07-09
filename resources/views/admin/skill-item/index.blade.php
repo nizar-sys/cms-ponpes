@@ -19,7 +19,7 @@
                         <h4>All Skill Item</h4>
                         <div class="card-header-action">
                             <a href="{{ route('admin.skill-item.create') }}" class="btn btn-success">
-                                Create New
+                                Tambah Data
                                 <i class="fas fa-plus"></i>
                             </a>
                         </div>

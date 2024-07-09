@@ -1512,7 +1512,7 @@ proto._itemize = function( elems ) {
   var itemElems = this._filterFindItemElements( elems );
   var Item = this.constructor.Item;
 
-  // create new Outlayer Items for collection
+  // Tambah Data Outlayer Items for collection
   var items = [];
   for ( var i=0; i < itemElems.length; i++ ) {
     var elem = itemElems[i];
