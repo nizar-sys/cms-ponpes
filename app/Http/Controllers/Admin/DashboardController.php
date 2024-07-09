@@ -17,6 +17,6 @@ class DashboardController extends Controller
         $skillCount = SkillItem::count();
         $portfolioCount = PortfolioItem::count();
         $feedbackCount = Feedback::count();
-        return view('admin.dashboard', compact('blogCount','skillCount','portfolioCount','feedbackCount'));
+        return view('admin.dashboard', compact('blogCount', 'skillCount', 'portfolioCount', 'feedbackCount'));
     }
 }
