@@ -48,6 +48,33 @@
             </li>
 
 
+            <li class="menu-header">MENU YANG DIBUTUHKAN</li>
+            <li class="nav-item">
+                <a href="#" class="nav-link"><i class="fas fa-columns"></i><span>Data Guru</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link"><i class="fas fa-columns"></i><span>Tentang Kami</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link"><i class="fas fa-columns"></i><span>Fasilitas</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link"><i class="fas fa-columns"></i><span>Pengumuman</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link"><i class="fas fa-columns"></i><span>Gallery</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link"><i class="fas fa-columns"></i><span>Berita</span></a>
+            </li>
+
+            <li class="menu-header">MENU YANG DIBUTUHKAN</li>
+
             <li class="nav-item dropdown {{ setSidebarActive(['admin.hero.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
                     <span>Hero</span>
@@ -91,7 +118,8 @@
 
             <li
                 class="nav-item dropdown {{ setSidebarActive(['admin.category.*', 'admin.portfolio-item.*', 'admin.portfolio-section-setting.*']) }}">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
+                        class="fas fa-columns"></i>
                     <span>Portfolio</span>
                 </a>
                 <ul class="dropdown-menu" style="display: none;">
@@ -111,7 +139,8 @@
             {{-- Blog --}}
             <li
                 class="nav-item dropdown {{ setSidebarActive(['admin.blog-category.*', 'admin.blog.*', 'admin.blog-section-setting.*']) }}">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
+                        class="fas fa-columns"></i>
                     <span>Blog</span>
                 </a>
                 <ul class="dropdown-menu" style="display: none;">
