@@ -34,26 +34,27 @@
     <section id="fasilitas" class="services section">
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
-            <h2>FASILITAS</h2>
-            <p>Berikut Adalah Fasilitas Kami</p>
+            <h2>{{ $fasilitasSection->title }}</h2>
+            <p>
+                {!! $fasilitasSection->sub_title !!}
+            </p>
         </div>
         <!-- End Section Title -->
         <div class="content">
             <div class="container">
                 <div class="row g-0">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="service-item">
-                            <span class="number">01</span>
-                            <div class="service-item-icon"></div>
-                            <div class="service-item-content">
-                                <h3 class="service-heading">Computer</h3>
-                                <p>
-                                    Gravida sodales condimentum pellen tesq accumsan orci quam
-                                    sagittis sapie
-                                </p>
+                    @foreach ($fasilitas as $f)
+                        <div class="col-lg-3 col-md-6">
+                            <div class="service-item">
+                                <img src="{{ asset($f->image) }}" class="img-fluid" />
+                                <div class="service-item-icon"></div>
+                                <div class="service-item-content">
+                                    <h3 class="service-heading">{{ $f->name }}</h3>
+                                    {!! $f->description !!}
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

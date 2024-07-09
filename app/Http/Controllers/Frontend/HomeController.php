@@ -28,8 +28,10 @@ class HomeController extends Controller
     public function index()
     {   
         $heroes = Hero::latest()->get();
+        $fasilitasSection = ServiceSectionSetting::first();
+        $fasilitas = Service::latest()->get();
 
-        return view('frontend.home', compact('heroes'));
+        return view('frontend.home', compact('heroes', 'fasilitasSection', 'fasilitas'));
     }
 
     public function about()

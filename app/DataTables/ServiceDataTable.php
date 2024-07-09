@@ -77,9 +77,9 @@ class ServiceDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            Column::make('name')->width(20),
-            Column::make('description')->width(20),
-            Column::make('image')->width(20),
+            Column::make('image')->width(20)->title('Gambar'),
+            Column::make('name')->width(20)->title('Nama'),
+            Column::make('description')->width(20)->title('Deskripsi'),
             Column::computed('action')->width(5)
                 ->exportable(false)
                 ->printable(false)

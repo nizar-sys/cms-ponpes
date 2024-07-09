@@ -6,7 +6,7 @@
             <div class="section-header-back">
                 <a href="{{ url('/dashboard', []) }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
             </div>
-            <h1>Service Section Setting</h1>
+            <h1>Pengaturan Fasilitas</h1>
 
         </div>
 
@@ -16,7 +16,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Update Section </h4>
+                            <h4>Ubah Pengaturan Fasilitas </h4>
                         </div>
                         <div class="card-body">
                             <form action="{{ route('admin.service-section-setting.update', 1) }}" method="POST"
@@ -25,7 +25,7 @@
                                 @method('PUT')
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">
-                                        Title
+                                        Judul
                                     </label>
                                     <div class="col-sm-12 col-md-7">
                                         <input type="text" name="title" class="form-control"
@@ -35,7 +35,7 @@
 
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">
-                                        Sub Title
+                                        Deskripsi
                                     </label>
                                     <div class="col-sm-12 col-md-7">
                                         <textarea name="sub_title" class="summernote" style="height: 100px">{{ $service?->sub_title }}</textarea>
@@ -45,7 +45,7 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                                     <div class="col-sm-12 col-md-7">
-                                        <button class="btn btn-primary">Update</button>
+                                        <button class="btn btn-primary">Simpan</button>
                                     </div>
                                 </div>
                             </form>
