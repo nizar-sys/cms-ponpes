@@ -16,8 +16,8 @@ class HeroController extends Controller
      */
     public function index()
     {
-        $hero = Hero::first();
-        return view('admin.hero.index', compact('hero'));
+        $heroes = Hero::all();
+        return view('admin.hero.index', compact('heroes'));
     }
 
     /**
@@ -27,7 +27,7 @@ class HeroController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.hero.create');
     }
 
     /**
@@ -38,7 +38,27 @@ class HeroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => ['required', 'max:200'],
+            'description' => ['required', 'max:500'],
+            'image' => ['required', 'max:3000', 'image'],
+        ]);
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName =  rand() . $image->getClientOriginalName();
+            $image->move(public_path('/uploads'), $imageName);
+
+            $imagePath = "/uploads/" . $imageName;
+        }
+
+        Hero::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'image' => $imagePath,
+        ]);
+        toastr()->success('Data Banner berhasil ditambah', 'Congrats');
+        return redirect()->route('admin.hero.index');
     }
 
     /**
@@ -60,7 +80,8 @@ class HeroController extends Controller
      */
     public function edit($id)
     {
-     //
+        $hero = Hero::find($id);
+        return view('admin.hero.edit', compact('hero'));
     }
 
     /**
@@ -73,38 +94,35 @@ class HeroController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => ['required','max:200'],
-            'sub_title' => ['required','max:500'], 
-            'image' => ['max:3000' ,'image'], 
+            'title' => ['required', 'max:200'],
+            'description' => ['required', 'max:500'],
+            'image' => ['max:3000', 'image'],
         ]);
-        // dd($request->all());
-        
-        $hero = Hero::first();
 
-        if( $request->hasFile('image') ){
-            if($hero && File::exists(public_path($hero->image))){
+        $hero = Hero::find($id);
+
+        if ($request->hasFile('image')) {
+            if ($hero && File::exists(public_path($hero->image))) {
                 File::delete(public_path($hero->image));
             }
 
             $image = $request->file('image');
-            $imageName =  rand().$image->getClientOriginalName();
-            $image->move( public_path('/uploads'), $imageName);
+            $imageName =  rand() . $image->getClientOriginalName();
+            $image->move(public_path('/uploads'), $imageName);
 
-            $imagePath = "/uploads/".$imageName;
+            $imagePath = "/uploads/" . $imageName;
         }
 
         Hero::updateOrCreate(
             ['id' => $id],
             [
                 'title' => $request->title,
-                'sub_title' => $request->sub_title,
-                'btn_text' => $request->btn_text,
-                'btn_url' => $request->btn_url,
-                'image' => null,
+                'description' => $request->description,
+                'image' => $imagePath,
             ]
         );
-        toastr()->success ('updated Succesfully', 'Congrats');
-        return redirect()->back();
+        toastr()->success('Data Banner berhasil diubah', 'Congrats');
+        return redirect(route('admin.hero.index'));
     }
 
     /**
@@ -115,6 +133,12 @@ class HeroController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $hero = Hero::find($id);
+        if ($hero && File::exists(public_path($hero->image))) {
+            File::delete(public_path($hero->image));
+        }
+        $hero->delete();
+        toastr()->success('Data Banner berhasil dihapus', 'Congrats');
+        return redirect(route('admin.hero.index'));
     }
 }

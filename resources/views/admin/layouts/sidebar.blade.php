@@ -51,15 +51,8 @@
                 <a href="{{ route('admin.teachers.index') }}" class="nav-link"><i class="fas fa-columns"></i><span>Data Guru</span></a>
             </li>
 
-            <li class="nav-item dropdown {{ setSidebarActive(['admin.hero.*']) }}">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
-                    <span>Hero</span>
-                </a>
-                <ul class="dropdown-menu" style="display: none;">
-                    <li class="{{ setSidebarActive(['admin.hero.*']) }}">
-                        <a class="nav-link" href="{{ route('admin.hero.index') }}">Hero Section</a>
-                    </li>
-                </ul>
+            <li class="nav-item {{ setSidebarActive(['admin.hero.*']) }}">
+                <a href="{{ route('admin.hero.index') }}" class="nav-link"><i class="fas fa-columns"></i><span>Banner</span></a>
             </li>
 
             <li class="nav-item dropdown {{ setSidebarActive(['admin.typer-title.*', 'admin.about.*']) }}">

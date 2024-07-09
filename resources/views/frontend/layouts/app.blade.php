@@ -1,91 +1,130 @@
-@php
-    $footerUsefulLinks = \App\Models\FooterUsefulLink::all();
-    $generalSetting = \App\Models\GeneralSetting::first();
-    $seoSetting = \App\Models\SeoSetting::first();
-@endphp
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="author" content="Untree.co">
-    <title>{{ @$seoSetting?->title }} | @yield('title')</title>
-    <link rel="shortcut icon" type="image/ico" href="{{ asset($generalSetting?->favicon) }}" />
-    <meta name="description" content="{{ @$seoSetting?->description }}">
-    <meta name="keywords" content="{{ @$seoSetting?->keywords }}">
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Pondok Pesantren</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=PT+Mono&display=swap"
-        rel="stylesheet">
+    <!-- Favicons -->
+    <link href="{{ asset('/ponpes') }}/assets/img/favicon.png" rel="icon" />
+    <link href="{{ asset('/ponpes') }}/assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
-    <link rel="stylesheet" href="{{ asset('untree_minimal') }}/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset('untree_minimal') }}/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="{{ asset('untree_minimal') }}/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="{{ asset('untree_minimal') }}/css/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="{{ asset('untree_minimal') }}/fonts/icomoon/style.css">
-    <link rel="stylesheet" href="{{ asset('untree_minimal') }}/fonts/flaticon/font/flaticon.css">
-    <link rel="stylesheet" href="{{ asset('untree_minimal') }}/css/aos.css">
-    <link rel="stylesheet" href="{{ asset('untree_minimal') }}/css/style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Marcellus:wght@400&display=swap"
+        rel="stylesheet" />
 
-    @stack('styles')
+    <!-- Vendor CSS Files -->
+    <link href="{{ asset('/ponpes') }}/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="{{ asset('/ponpes') }}/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="{{ asset('/ponpes') }}/assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="{{ asset('/ponpes') }}/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <link href="{{ asset('/ponpes') }}/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+
+    <!-- Main CSS File -->
+    <link href="{{ asset('/ponpes') }}/assets/css/main.css" rel="stylesheet" />
 </head>
 
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="100">
+<body class="index-page">
+    <header id="header" class="header d-flex align-items-center position-relative">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+            <a href="{{ url('/', []) }}" class="logo d-flex align-items-center">
+                <img src="{{ asset('/ponpes') }}/assets/img/logo-pesantren.png" alt="ponpes" />
+                <h1 class="sitename">Pondok Pesantren</h1>
+            </a>
 
-    <div class="lines-wrap">
-        <div class="lines-inner">
-            <div class="lines"></div>
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="{{ url('/', []) }}" class="active">Home</a></li>
+                    <li><a href="about.html">Tentang Kami</a></li>
+                    <li><a href="#fasilitas">Fasilitas</a></li>
+                    <li><a href="data-guru.html">Data Guru</a></li>
+                    <li><a href="#pengumuman">Pengumuman</a></li>
+                    <li><a href="#galeri">Galeri</a></li>
+                    <li><a href="#berita">Berita</a></li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
         </div>
-    </div>
-    <!-- END lines -->
+    </header>
 
-    <div class="site-mobile-menu site-navbar-target">
-        <div class="site-mobile-menu-header">
-            <div class="site-mobile-menu-close">
-                <span class="icofont-close js-menu-toggle"></span>
+    <main class="main">
+        @yield('content')
+    </main>
+
+    <footer id="footer" class="footer dark-background">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row gy-4">
+                    <div class="col-lg-4 col-md-6 footer-about">
+                        <a href="{{ url('/', []) }}" class="logo d-flex align-items-center">
+                            <span class="sitename">{namaAplikasi}</span>
+                        </a>
+                        <div class="footer-contact pt-3">
+                            <p>A108 Adam Street</p>
+                            <p>New York, NY 535022</p>
+                            <p class="mt-3">
+                                <strong>Phone:</strong> <span>+1 5589 55488 55</span>
+                            </p>
+                            <p><strong>Email:</strong> <span>info@example.com</span></p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-3 footer-links">
+                        <ul>
+                            <li><a href="{{ url('/', []) }}" class="active">Home</a></li>
+                            <li><a href="about.html">Tentang Kami</a></li>
+                            <li><a href="#fasilitas">Fasilitas</a></li>
+                            <li><a href="data-guru.html">Data Guru</a></li>
+                            <li><a href="#pengumuman">Pengumuman</a></li>
+                            <li><a href="#galeri">Galeri</a></li>
+                            <li><a href="#berita">Berita</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="site-mobile-menu-body"></div>
-    </div>
 
-    @include('frontend.layouts.navbar')
+        <div class="copyright text-center">
+            <div
+                class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center">
+                <div class="d-flex flex-column align-items-center align-items-lg-start">
+                    <div>
+                        © Copyright <strong><span>{namaAplikasi}</span></strong>. All Rights Reserved
+                    </div>
+                </div>
 
-    @yield('content')
-
-    @include('frontend.layouts.footer')
-
-    <div id="overlayer"></div>
-    <div class="loader">
-        <div class="spinner-border" role="status">
-            <span class="sr-only">Loading...</span>
+                <div class="social-links order-first order-lg-last mb-3 mb-lg-0">
+                    <a href=""><i class="bi bi-twitter-x"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
         </div>
-    </div>
+    </footer>
 
-    <script src="{{ asset('untree_minimal') }}/js/jquery-3.4.1.min.js"></script>
-    <script src="{{ asset('untree_minimal') }}/js/popper.min.js"></script>
-    <script src="{{ asset('untree_minimal') }}/js/bootstrap.min.js"></script>
-    <script src="{{ asset('untree_minimal') }}/js/owl.carousel.min.js"></script>
-    <script src="{{ asset('untree_minimal') }}/js/jquery.animateNumber.min.js"></script>
-    <script src="{{ asset('untree_minimal') }}/js/jquery.waypoints.min.js"></script>
-    <script src="{{ asset('untree_minimal') }}/js/jquery.fancybox.min.js"></script>
-    <script src="{{ asset('untree_minimal') }}/js/aos.js"></script>
-    <script src="{{ asset('untree_minimal') }}/js/wave-animate.js"></script>
-    <script src="{{ asset('untree_minimal') }}/js/circle-progress.js"></script>
-    <script src="{{ asset('untree_minimal') }}/js/imagesloaded.pkgd.js"></script>
-    <script src="{{ asset('untree_minimal') }}/js/isotope.pkgd.min.js"></script>
-    <script src="{{ asset('untree_minimal') }}/js/jquery.easing.1.3.js"></script>
-    <script src="{{ asset('untree_minimal') }}/js/TweenMax.min.js"></script>
-    <script src="{{ asset('untree_minimal') }}/js/ScrollMagic.min.js"></script>
-    <script src="{{ asset('untree_minimal') }}/js/scrollmagic.animation.gsap.min.js"></script>
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
 
+    <!-- Preloader -->
+    <div id="preloader"></div>
 
-    <script src="{{ asset('untree_minimal') }}/js/custom.js"></script>
+    <!-- Vendor JS Files -->
+    <script src="{{ asset('/ponpes') }}/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('/ponpes') }}/assets/vendor/php-email-form/validate.js"></script>
+    <script src="{{ asset('/ponpes') }}/assets/vendor/aos/aos.js"></script>
+    <script src="{{ asset('/ponpes') }}/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="{{ asset('/ponpes') }}/assets/vendor/glightbox/js/glightbox.min.js"></script>
 
-    @stack('scripts')
+    <!-- Main JS File -->
+    <script src="{{ asset('/ponpes') }}/assets/js/main.js"></script>
 </body>
 
 </html>

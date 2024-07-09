@@ -26,14 +26,10 @@ use function Ramsey\Uuid\v1;
 class HomeController extends Controller
 {
     public function index()
-    {
-        $hero = Hero::first();
-        $portfolioTitle = PortfolioSectionSetting::first(['title', 'sub_title']);
-        $portfolioItems = PortfolioItem::latest()->take(5)->with('category')->get();
-        $blogTitle = BlogSectionSetting::first();
-        $blogs = Blog::latest()->take(4)->with(['getCategory', 'getCreatedBy'])->get();
-        
-        return view('frontend.home', compact('hero', 'portfolioTitle', 'portfolioItems', 'blogTitle', 'blogs'));
+    {   
+        $heroes = Hero::latest()->get();
+
+        return view('frontend.home', compact('heroes'));
     }
 
     public function about()
