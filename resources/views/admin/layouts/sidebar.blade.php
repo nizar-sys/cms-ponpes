@@ -48,32 +48,12 @@
             </li>
 
 
-            <li class="menu-header">MENU YANG DIBUTUHKAN</li>
+            <li class="menu-header">MENU TAMBAHAN</li>
             <li class="nav-item">
                 <a href="#" class="nav-link"><i class="fas fa-columns"></i><span>Data Guru</span></a>
             </li>
 
-            <li class="nav-item">
-                <a href="#" class="nav-link"><i class="fas fa-columns"></i><span>Tentang Kami</span></a>
-            </li>
-
-            <li class="nav-item">
-                <a href="#" class="nav-link"><i class="fas fa-columns"></i><span>Fasilitas</span></a>
-            </li>
-
-            <li class="nav-item">
-                <a href="#" class="nav-link"><i class="fas fa-columns"></i><span>Pengumuman</span></a>
-            </li>
-
-            <li class="nav-item">
-                <a href="#" class="nav-link"><i class="fas fa-columns"></i><span>Gallery</span></a>
-            </li>
-
-            <li class="nav-item">
-                <a href="#" class="nav-link"><i class="fas fa-columns"></i><span>Berita</span></a>
-            </li>
-
-            <li class="menu-header">MENU YANG DIBUTUHKAN</li>
+            <li class="menu-header">END MENU YANG DIBUTUHKAN</li>
 
             <li class="nav-item dropdown {{ setSidebarActive(['admin.hero.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
@@ -86,25 +66,9 @@
                 </ul>
             </li>
 
-            <li
-                class="nav-item dropdown {{ setSidebarActive(['admin.service.*', 'admin.service-section-setting.*']) }}">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
-                    <span>Services</span>
-                </a>
-                <ul class="dropdown-menu" style="display: none;">
-                    <li class="{{ setSidebarActive(['admin.service.*']) }}">
-                        <a class="nav-link" href="{{ route('admin.service.index') }}">Services Item</a>
-                    </li>
-                    <li class="{{ setSidebarActive(['admin.service-section-setting.*']) }}">
-                        <a class="nav-link" href="{{ route('admin.service-section-setting.index') }}">Section
-                            Setting</a>
-                    </li>
-                </ul>
-            </li>
-
             <li class="nav-item dropdown {{ setSidebarActive(['admin.typer-title.*', 'admin.about.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
-                    <span>About</span>
+                    <span>Tentang Kami</span>
                 </a>
                 <ul class="dropdown-menu" style="display: none;">
                     <li class="{{ setSidebarActive(['admin.typer-title.*']) }}">
@@ -117,10 +81,78 @@
             </li>
 
             <li
+                class="nav-item dropdown {{ setSidebarActive(['admin.service.*', 'admin.service-section-setting.*']) }}">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
+                    <span>Fasilitas</span>
+                </a>
+                <ul class="dropdown-menu" style="display: none;">
+                    <li class="{{ setSidebarActive(['admin.service.*']) }}">
+                        <a class="nav-link" href="{{ route('admin.service.index') }}">Services Item</a>
+                    </li>
+                    <li class="{{ setSidebarActive(['admin.service-section-setting.*']) }}">
+                        <a class="nav-link" href="{{ route('admin.service-section-setting.index') }}">Section
+                            Setting</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li
+                class="nav-item dropdown {{ setSidebarActive(['admin.blog-category.*', 'admin.blog.*', 'admin.blog-section-setting.*']) }}">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
+                    <span>Pengumuman (Pake Blog)</span>
+                </a>
+                <ul class="dropdown-menu" style="display: none;">
+                    <li class="{{ setSidebarActive(['admin.blog-category.*']) }}"><a class="nav-link"
+                            href="{{ route('admin.blog-category.index') }}">Category</a></li>
+                    <li class="{{ setSidebarActive(['admin.blog.*']) }}"><a class="nav-link"
+                            href="{{ route('admin.blog.index') }}">Blog List</a></li>
+                    <li class="{{ setSidebarActive(['admin.blog-section-setting.*']) }}"><a class="nav-link"
+                            href="{{ route('admin.blog-section-setting.index') }}">Section
+                            Setting</a></li>
+                </ul>
+            </li>
+
+
+            <li
+                class="nav-item dropdown {{ setSidebarActive(['admin.gallery-album.*', 'admin.gallery.*', 'admin.gallery-section-setting.*']) }}">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
+                        class="fas fa-columns"></i>
+                    <span>Galeri</span>
+                </a>
+                <ul class="dropdown-menu" style="display: none;">
+                    <li class="{{ setSidebarActive(['admin.gallery-album.*']) }}"><a class="nav-link"
+                            href="{{ route('admin.gallery-album.index') }}">Album</a></li>
+                    <li class="{{ setSidebarActive(['admin.gallery.*']) }}"><a class="nav-link"
+                            href="{{ route('admin.gallery.index') }}">Photos</a></li>
+                    <li class="{{ setSidebarActive(['admin.gallery-section-setting.*']) }}"><a class="nav-link"
+                            href="{{ route('admin.gallery-section-setting.index') }}">Section
+                            Setting</a></li>
+                </ul>
+            </li>
+
+            <li
+                class="nav-item dropdown {{ setSidebarActive(['admin.blog-category.*', 'admin.blog.*', 'admin.blog-section-setting.*']) }}">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
+                        class="fas fa-columns"></i>
+                    <span>Berita (Pake Blog)</span>
+                </a>
+                <ul class="dropdown-menu" style="display: none;">
+                    <li class="{{ setSidebarActive(['admin.blog-category.*']) }}"><a class="nav-link"
+                            href="{{ route('admin.blog-category.index') }}">Category</a></li>
+                    <li class="{{ setSidebarActive(['admin.blog.*']) }}"><a class="nav-link"
+                            href="{{ route('admin.blog.index') }}">Blog List</a></li>
+                    <li class="{{ setSidebarActive(['admin.blog-section-setting.*']) }}"><a class="nav-link"
+                            href="{{ route('admin.blog-section-setting.index') }}">Section
+                            Setting</a></li>
+                </ul>
+            </li>
+
+
+            <li
                 class="nav-item dropdown {{ setSidebarActive(['admin.category.*', 'admin.portfolio-item.*', 'admin.portfolio-section-setting.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
                         class="fas fa-columns"></i>
-                    <span>Portfolio</span>
+                    <span>Portfolio (tekapake jir)</span>
                 </a>
                 <ul class="dropdown-menu" style="display: none;">
                     <li class="{{ setSidebarActive(['admin.category.*']) }}">
@@ -133,42 +165,6 @@
                         <a class="nav-link" href="{{ route('admin.portfolio-section-setting.index') }}">Section
                             Setting</a>
                     </li>
-                </ul>
-            </li>
-
-            {{-- Blog --}}
-            <li
-                class="nav-item dropdown {{ setSidebarActive(['admin.blog-category.*', 'admin.blog.*', 'admin.blog-section-setting.*']) }}">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
-                        class="fas fa-columns"></i>
-                    <span>Blog</span>
-                </a>
-                <ul class="dropdown-menu" style="display: none;">
-                    <li class="{{ setSidebarActive(['admin.blog-category.*']) }}"><a class="nav-link"
-                            href="{{ route('admin.blog-category.index') }}">Category</a></li>
-                    <li class="{{ setSidebarActive(['admin.blog.*']) }}"><a class="nav-link"
-                            href="{{ route('admin.blog.index') }}">Blog List</a></li>
-                    <li class="{{ setSidebarActive(['admin.blog-section-setting.*']) }}"><a class="nav-link"
-                            href="{{ route('admin.blog-section-setting.index') }}">Section
-                            Setting</a></li>
-                </ul>
-            </li>
-            {{-- END Blog --}}
-
-            <li
-                class="nav-item dropdown {{ setSidebarActive(['admin.gallery-album.*', 'admin.gallery.*', 'admin.gallery-section-setting.*']) }}">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
-                        class="fas fa-columns"></i>
-                    <span>Gallery</span>
-                </a>
-                <ul class="dropdown-menu" style="display: none;">
-                    <li class="{{ setSidebarActive(['admin.gallery-album.*']) }}"><a class="nav-link"
-                            href="{{ route('admin.gallery-album.index') }}">Album</a></li>
-                    <li class="{{ setSidebarActive(['admin.gallery.*']) }}"><a class="nav-link"
-                            href="{{ route('admin.gallery.index') }}">Photos</a></li>
-                    <li class="{{ setSidebarActive(['admin.gallery-section-setting.*']) }}"><a class="nav-link"
-                            href="{{ route('admin.gallery-section-setting.index') }}">Section
-                            Setting</a></li>
                 </ul>
             </li>
 
