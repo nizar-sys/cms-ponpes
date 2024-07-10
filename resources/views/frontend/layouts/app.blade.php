@@ -72,11 +72,11 @@
                             <span class="sitename">{{ $seoSetting?->title }}</span>
                         </a>
                         <div class="footer-contact pt-3">
-                            <p>{{ $contact->address }}</p>
+                            <p>{{ $contact?->address }}</p>
                             <p class="mt-3">
-                                <strong>No Hp:</strong> <span>{{ $contact->phone }}</span>
+                                <strong>No Hp:</strong> <span>{{ $contact?->phone }}</span>
                             </p>
-                            <p><strong>Email:</strong> <span>{{ $contact->email }}</span></p>
+                            <p><strong>Email:</strong> <span>{{ $contact?->email }}</span></p>
                         </div>
                     </div>
 
