@@ -120,7 +120,7 @@
             </li>
 
 
-            <li
+            {{-- <li
                 class="nav-item dropdown {{ setSidebarActive(['admin.category.*', 'admin.portfolio-item.*', 'admin.portfolio-section-setting.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
                         class="fas fa-columns"></i>
@@ -140,7 +140,6 @@
                 </ul>
             </li>
 
-            {{-- Contact --}}
             <li class="nav-item dropdown {{ setSidebarActive(['admin.contact-section-setting.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
                         class="fas fa-columns"></i>
@@ -152,16 +151,13 @@
                             Setting</a></li>
                 </ul>
             </li>
-            {{-- Contact --}}
 
-            {{-- footer --}}
             <li
                 class="nav-item dropdown {{ setSidebarActive([
                     'admin.footer-social.*',
                     'admin.footer-info.*',
                     'admin.footer-contact-info.*',
                     'admin.footer-useful-links.*',
-                    // 'admin.footer-help-links.*'
                 ]) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
                         class="fas fa-columns"></i>
@@ -176,10 +172,8 @@
                             href="{{ route('admin.footer-contact-info.index') }}">Footer Contact Info</a></li>
                     <li class="{{ setSidebarActive(['admin.footer-useful-links.*']) }}"><a class="nav-link"
                             href="{{ route('admin.footer-useful-links.index') }}">Footer Useful Link</a></li>
-                    {{-- <li class="{{ setSidebarActive(['admin.footer-help-links.*']) }}"><a class="nav-link" href="{{ route('admin.footer-help-links.index') }}">Footer Help Link</a></li> --}}
                 </ul>
-            </li>
-            {{-- footer --}}
+            </li> --}}
 
             <li class="menu-header">Settings</li>
 

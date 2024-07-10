@@ -1,16 +1,20 @@
+@php
+    $generalSetting = \App\Models\GeneralSetting::first();
+    $seoSetting = \App\Models\SeoSetting::first();
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Pondok Pesantren</title>
-    <meta content="" name="description" />
-    <meta content="" name="keywords" />
+    <title>{{ $seoSetting?->title }}</title>
+    <meta content="{!! $seoSetting?->description !!}" name="description" />
+    <meta content="{{ $seoSetting?->keywords }}" name="keywords" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Favicons -->
-    <link href="{{ asset('/ponpes') }}/assets/img/favicon.png" rel="icon" />
+    <link href="{{ asset($generalSetting?->favicon) }}" rel="icon" />
     <link href="{{ asset('/ponpes') }}/assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
     <!-- Fonts -->
@@ -64,7 +68,7 @@
                 <div class="row gy-4">
                     <div class="col-lg-4 col-md-6 footer-about">
                         <a href="{{ url('/', []) }}" class="logo d-flex align-items-center">
-                            <span class="sitename">{namaAplikasi}</span>
+                            <span class="sitename">{{ $seoSetting?->title }}</span>
                         </a>
                         <div class="footer-contact pt-3">
                             <p>A108 Adam Street</p>
@@ -96,7 +100,7 @@
                 class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center">
                 <div class="d-flex flex-column align-items-center align-items-lg-start">
                     <div>
-                        © Copyright <strong><span>{namaAplikasi}</span></strong>. All Rights Reserved
+                        © Copyright <strong><span>{{ $seoSetting?->title }}</span></strong>. All Rights Reserved
                     </div>
                 </div>
 
