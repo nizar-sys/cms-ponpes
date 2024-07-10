@@ -25,6 +25,16 @@
                                 @method('PUT')
 
                                 <div class="form-group row mb-4">
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Foto</label>
+                                    <div class="col-sm-12 col-md-7">
+                                        <div id="image-preview" class="image-preview">
+                                            <label for="image-upload" id="image-label">Choose File</label>
+                                            <input type="file" name="image" id="image-upload" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">
                                         Nama Guru
                                     </label>
@@ -49,7 +59,8 @@
                                         Jabatan
                                     </label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" name="role" class="form-control" value="{{ old('role', $teacher->role) }}">
+                                        <input type="text" name="role" class="form-control"
+                                            value="{{ old('role', $teacher->role) }}">
                                     </div>
                                 </div>
 
@@ -67,3 +78,15 @@
         </div>
     </section>
 @endsection
+
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            $('#image-preview').css({
+                'background-image': 'url("{{ asset($teacher->image) }}")',
+                'background-size': 'cover',
+                'background-position': 'center center'
+            })
+        });
+    </script>
+@endpush

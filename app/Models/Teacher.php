@@ -13,5 +13,6 @@ class Teacher extends Model
         'name',
         'nik',
         'role',
+        'image',
     ];
 }

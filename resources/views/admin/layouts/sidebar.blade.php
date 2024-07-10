@@ -62,11 +62,11 @@
                     <span>Tentang Kami</span>
                 </a>
                 <ul class="dropdown-menu" style="display: none;">
-                    <li class="{{ setSidebarActive(['admin.typer-title.*']) }}">
+                    {{-- <li class="{{ setSidebarActive(['admin.typer-title.*']) }}">
                         <a class="nav-link" href="{{ route('admin.typer-title.index') }}">Typer Title</a>
-                    </li>
+                    </li> --}}
                     <li class="{{ setSidebarActive(['admin.about.*']) }}">
-                        <a class="nav-link" href="{{ route('admin.about.index') }}">About Section</a>
+                        <a class="nav-link" href="{{ route('admin.about.index') }}">Pengaturan Tentang Kami</a>
                     </li>
                 </ul>
             </li>

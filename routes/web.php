@@ -47,6 +47,7 @@ Route::get('/optimize', function () {
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/data-guru', [HomeController::class, 'teachers'])->name('teachers.all');
 Route::get('/gallery', [HomeController::class, 'galery'])->name('galery');
 Route::get('portfolios', [HomeController::class, 'portfolio'])->name('portfolio');
 Route::get('portfolio-details/{id}', [HomeController::class, 'showPortfolio'])->name('show.portfolio');

@@ -75,7 +75,7 @@
                         <div class="col-lg-4 mb-4 d-flex align-items-start">
                             <div class="w-100">
                                 <h4 class="m-0 h5 text-white">{{ $p->title }}</h4>
-                                <p class="text-white opacity-50">{!! $p->content !!}</p>
+                                <p class="text-white opacity-50">{{ \Illuminate\Support\Str::limit($p->content, 30) }}</p>
                                 <a href="{{ route('announcements.show', $p->id) }}" class="readmore stretched-link">
                                     <span style="color: white">Read More</span><i class="bi bi-arrow-right"></i>
                                 </a>
@@ -91,7 +91,7 @@
     <section id="galeri" class="services-2 section dark-background">
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
-            <h2>Galeri Ponpes {namaAplikasi}</h2>
+            <h2>Galeri Ponpes {{ \App\Models\SeoSetting::first()?->title }}</h2>
             <p>Galeri</p>
         </div>
         <!-- End Section Title -->
@@ -172,7 +172,7 @@
                         <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="100">
                             <div class="post-img position-relative overflow-hidden">
                                 <img src="{{ asset($berita->image) }}" class="img-fluid" alt="" />
-                                <span class="post-date">{{ $berita->created_at }}</span>
+                                <span class="post-date">{{ $berita->created_at->diffForHumans() }}</span>
                             </div>
 
                             <div class="post-content d-flex flex-column">

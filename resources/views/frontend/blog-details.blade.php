@@ -36,7 +36,7 @@
                                     <li class="d-flex align-items-center">
                                         <i class="bi bi-clock"></i>
                                         <a href="{{ route('show.blog', $berita->id) }}"><time
-                                                datetime="2020-01-01">{{ $berita->created_at }}</time></a>
+                                                datetime="2020-01-01">{{ $berita->created_at->diffForHumans() }}</time></a>
                                     </li>
                                 </ul>
                             </div>
@@ -60,7 +60,7 @@
                         <ul class="mt-3">
                             @foreach ($kategoriBerita as $kategori)
                                 <li>
-                                    <a href="#">{{ $kategori->name }}
+                                    <a href="{{ route('blog', ['category' => $kategori->id]) }}">{{ $kategori->name }}
                                         <span>({{ $kategori->blogs_count }})</span></a>
                                 </li>
                             @endforeach
@@ -74,7 +74,7 @@
                         @foreach ($latestPosts as $post)
                             <div class="post-item">
                                 <h4>
-                                    <a href="blog-details.html">{{ $post->title }}</a>
+                                    <a href="{{ route('show.blog', $post->id) }}">{{ $post->title }}</a>
                                 </h4>
                                 <time datetime="2020-01-01">{{ $post->created_at->format('M d, Y') }}</time>
                             </div>

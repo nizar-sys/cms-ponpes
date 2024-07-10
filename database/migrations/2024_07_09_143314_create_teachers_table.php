@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('nik')->unique();
             $table->string('role');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

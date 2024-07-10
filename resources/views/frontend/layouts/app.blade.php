@@ -47,12 +47,12 @@
             <nav id="navmenu" class="navmenu">
                 <ul>
                     <li><a href="{{ url('/', []) }}" class="active">Home</a></li>
-                    <li><a href="{{ url('/', []) }}/about.html">Tentang Kami</a></li>
+                    <li><a href="{{ route('about', []) }}">Tentang Kami</a></li>
                     <li><a href="{{ url('/', []) }}/#fasilitas">Fasilitas</a></li>
-                    <li><a href="{{ url('/', []) }}data-guru.html">Data Guru</a></li>
+                    <li><a href="{{ route('teachers.all') }}">Data Guru</a></li>
                     <li><a href="{{ url('/', []) }}/#pengumuman">Pengumuman</a></li>
                     <li><a href="{{ url('/', []) }}/#galeri">Galeri</a></li>
-                    <li><a href="{{ url('/', []) }}/#berita">Berita</a></li>
+                    <li><a href="{{ url('/blog', []) }}">Berita</a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
@@ -72,8 +72,8 @@
                             <span class="sitename">{{ $seoSetting?->title }}</span>
                         </a>
                         <div class="footer-contact pt-3">
-                            <p>{{ $contact?->address }}</p>
-                            <p class="mt-3">
+                            <p><strong>Alamat:</strong> <span>{{ $contact?->address }}</span></p>
+                            <p>
                                 <strong>No Hp:</strong> <span>{{ $contact?->phone }}</span>
                             </p>
                             <p><strong>Email:</strong> <span>{{ $contact?->email }}</span></p>
@@ -83,12 +83,12 @@
                     <div class="col-lg-2 col-md-3 footer-links">
                         <ul>
                             <li><a href="{{ url('/', []) }}" class="active">Home</a></li>
-                            <li><a href="about.html">Tentang Kami</a></li>
-                            <li><a href="#fasilitas">Fasilitas</a></li>
-                            <li><a href="data-guru.html">Data Guru</a></li>
-                            <li><a href="#pengumuman">Pengumuman</a></li>
-                            <li><a href="#galeri">Galeri</a></li>
-                            <li><a href="#berita">Berita</a></li>
+                            <li><a href="{{ route('about', []) }}">Tentang Kami</a></li>
+                            <li><a href="{{ url('/', []) }}/#fasilitas">Fasilitas</a></li>
+                            <li><a href="{{ route('teachers.all') }}">Data Guru</a></li>
+                            <li><a href="{{ url('/', []) }}/#pengumuman">Pengumuman</a></li>
+                            <li><a href="{{ url('/', []) }}/#galeri">Galeri</a></li>
+                            <li><a href="{{ url('/blog', []) }}">Berita</a></li>
                         </ul>
                     </div>
                 </div>

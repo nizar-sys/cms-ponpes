@@ -3,38 +3,71 @@
 @section('title', 'All Journey')
 
 @section('content')
-    <div class="untree_co-section">
-        <div class="container">
-            <div class="row mb-5">
-                <div class="col-lg-7 text-center mx-auto">
-                    <h2 class="section-heading gsap-reveal-hero mb-0">
-                        <strong>{{ $blogSetting?->title }}</strong>
-                    </h2>
-                    <p class="gsap-reveal-hero">{!! $blogSetting?->sub_title !!}</p>
+    <!-- Page Title -->
+    <div class="page-title dark-background" data-aos="fade"
+        style="background-image: url({{ asset('/ponpes') }}/assets/img/page-title-bg.webp);">
+        <div class="container position-relative">
+            <h1>Berita</h1>
+            <p>
+                Home
+                /
+                Berita</p>
+            <nav class="breadcrumbs">
+                <ol>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="current">Berita</li>
+                </ol>
+            </nav>
+        </div>
+    </div><!-- End Page Title -->
 
-                    <div class="wave gsap-reveal-hero">
-                        <svg>
-                            <path d="M10,10 L50,100 L90,50" stroke="#0389ff" stroke-width="2"></path>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                @foreach ($blogs as $blog)
-                    <div class="col-6 col-sm-6 col-md-6 col-lg-3" data-aos="fade-up"
-                        data-aos-delay="{{ $loop->iteration == 1 ? '0' : $loop->iteration . '00' }}">
-                        <div class="post-entry">
-                            <a href="{{ route('show.blog', $blog->id) }}" class="thumb"><img
-                                    src="{{ asset($blog->image) }}" alt="image" class="img-fluid" /></a>
-                            <h3><a href="{{ route('show.blog', $blog->id) }}">{{ $blog->title }}</a></h3>
-                            <div class="post-meta">
-                                {{ \Carbon\Carbon::now()->parse($blog->created_at)->format('M d, Y') }} by <a
-                                    href="#">{{ $blog->getCreatedBy->name }}</a>
+    <!-- Berita Posts 2 Section -->
+    <section id="blog-posts-2" class="blog-posts-2 section">
+
+        <div class="container">
+            <div class="row gy-4">
+                @foreach ($blogs as $berita)
+                    <div class="col-lg-4">
+                        <article class="position-relative h-100">
+
+                            <div class="post-img position-relative overflow-hidden">
+                                <img src="{{ asset($berita->image) }}" class="img-fluid" alt="">
                             </div>
-                        </div>
+
+                            <div class="mt-3"></div>
+
+                            <div class="meta d-flex align-items-end">
+                                <span class="post-date">{{ $berita->created_at->format('d F') }}</span>
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-folder2"></i> <span class="ps-2">{{ $berita->getCategory->name }}</span>
+                                </div>
+                            </div>
+
+                            <div class="post-content d-flex flex-column">
+
+                                <h3 class="post-title">{{ $berita->title }}</h3>
+                                <a href="{{ route('show.blog', $berita->id) }}" class="readmore stretched-link"><span>Read More</span><i
+                                        class="bi bi-arrow-right"></i></a>
+
+                            </div>
+
+                        </article>
                     </div>
                 @endforeach
             </div>
         </div>
-    </div>
+
+    </section><!-- /Blog Posts 2 Section -->
+
+    <!-- Blog Pagination Section -->
+    <section id="blog-pagination" class="blog-pagination section">
+
+        <div class="container">
+            <div class="d-flex justify-content-center">
+                {{ $blogs->links() }}
+            </div>
+        </div>
+
+    </section><!-- /Blog Pagination Section -->
+
 @endsection

@@ -20,6 +20,7 @@ use App\Models\Service;
 use App\Models\ServiceSectionSetting;
 use App\Models\KrfSectionSetting;
 use App\Models\Krfimage;
+use App\Models\Teacher;
 use App\Models\TyperTitle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -105,7 +106,10 @@ class HomeController extends Controller
     public function blog(Request $request)
     {
         $blogs = Blog::latest()
-            ->get();
+            ->when($request->filled('category'), function ($query) use ($request) {
+                $query->where('category', $request->category);
+            })
+            ->paginate(6);
         $blogSetting = BlogSectionSetting::first();
 
         return view('frontend.blog', compact('blogs', 'blogSetting'));
@@ -138,5 +142,12 @@ class HomeController extends Controller
 
         toastr()->success('Your message has been sent successfully!');
         return back();
+    }
+
+    public function teachers()
+    {
+        $teachers = Teacher::latest()->get();
+
+        return view('frontend.teachers', compact('teachers'));
     }
 }

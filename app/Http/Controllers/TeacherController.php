@@ -41,7 +41,17 @@ class TeacherController extends Controller
             'nik.unique' => 'NIK guru sudah terdaftar.',
         ]);
 
-        Teacher::create($request->all());
+        if ($request->hasFile('image')) {
+            $imagePath = handleUpload('image');
+        }
+
+
+        $teacher = new Teacher();
+        $teacher->name = $request->name;
+        $teacher->nik = $request->nik;
+        $teacher->role = $request->role;
+        $teacher->image = $imagePath;
+        $teacher->save();
 
         toastr()->success('Data guru berhasil ditambahkan.');
         return redirect(route('admin.teachers.index'));
@@ -79,7 +89,15 @@ class TeacherController extends Controller
             'nik.unique' => 'NIK guru sudah terdaftar.',
         ]);
 
-        $teacher->update($request->all());
+        if ($request->hasFile('image')) {
+            $imagePath = handleUpload('image', $teacher);
+            $teacher->image = $imagePath;
+        }
+
+        $teacher->name = $request->name;
+        $teacher->nik = $request->nik;
+        $teacher->role = $request->role;
+        $teacher->save();
 
         toastr()->success('Data guru berhasil diperbarui.');
         return redirect(route('admin.teachers.index'));
@@ -90,6 +108,7 @@ class TeacherController extends Controller
      */
     public function destroy(Teacher $teacher)
     {
+        deleteFileIfExist($teacher->image);
         $teacher->delete();
 
         toastr()->success('Data guru berhasil dihapus.');

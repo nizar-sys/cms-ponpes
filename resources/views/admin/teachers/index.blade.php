@@ -33,6 +33,7 @@
                                         <th>NIK</th>
                                         <th>Nama</th>
                                         <th>Jabatan</th>
+                                        <th>Foto</th>
                                         <th>Aksi</th>
                                     </tr>
                                     @foreach ($teachers as $teacher)
@@ -41,6 +42,10 @@
                                             <td>{{ $teacher->nik }}</td>
                                             <td>{{ $teacher->name }}</td>
                                             <td>{{ $teacher->role }}</td>
+                                            <td>
+                                                <img src="{{ asset($teacher->image) }}" alt="image-guru"
+                                                    class="img-fluid" style="width: 100px; height: 100px;" />
+                                            </td>
                                             <td>
                                                 <a href="{{ route('admin.teachers.edit', $teacher->id) }}"
                                                     class="btn btn-primary"><i class="fas fa-edit"></i></a>
