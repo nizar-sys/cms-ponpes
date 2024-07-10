@@ -41,12 +41,12 @@
             <nav id="navmenu" class="navmenu">
                 <ul>
                     <li><a href="{{ url('/', []) }}" class="active">Home</a></li>
-                    <li><a href="about.html">Tentang Kami</a></li>
-                    <li><a href="#fasilitas">Fasilitas</a></li>
-                    <li><a href="data-guru.html">Data Guru</a></li>
-                    <li><a href="#pengumuman">Pengumuman</a></li>
-                    <li><a href="#galeri">Galeri</a></li>
-                    <li><a href="#berita">Berita</a></li>
+                    <li><a href="{{ url('/', []) }}/about.html">Tentang Kami</a></li>
+                    <li><a href="{{ url('/', []) }}/#fasilitas">Fasilitas</a></li>
+                    <li><a href="{{ url('/', []) }}data-guru.html">Data Guru</a></li>
+                    <li><a href="{{ url('/', []) }}/#pengumuman">Pengumuman</a></li>
+                    <li><a href="{{ url('/', []) }}/#galeri">Galeri</a></li>
+                    <li><a href="{{ url('/', []) }}/#berita">Berita</a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>

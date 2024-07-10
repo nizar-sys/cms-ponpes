@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Mail\ContactMail;
 use App\Models\About;
 use App\Models\Album;
+use App\Models\Announcement;
 use App\Models\Blog;
 use App\Models\BlogSectionSetting;
 use App\Models\ContactSectionSetting;
@@ -30,8 +31,9 @@ class HomeController extends Controller
         $heroes = Hero::latest()->get();
         $fasilitasSection = ServiceSectionSetting::first();
         $fasilitas = Service::latest()->get();
+        $pengumuman = Announcement::latest()->get();
 
-        return view('frontend.home', compact('heroes', 'fasilitasSection', 'fasilitas'));
+        return view('frontend.home', compact('heroes', 'fasilitasSection', 'fasilitas', 'pengumuman'));
     }
 
     public function about()

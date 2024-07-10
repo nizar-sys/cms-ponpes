@@ -87,22 +87,10 @@
                 </ul>
             </li>
 
-            <li
-                class="nav-item dropdown {{ setSidebarActive(['admin.blog-category.*', 'admin.blog.*', 'admin.blog-section-setting.*']) }}">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
-                    <span>Pengumuman (Pake Blog)</span>
-                </a>
-                <ul class="dropdown-menu" style="display: none;">
-                    <li class="{{ setSidebarActive(['admin.blog-category.*']) }}"><a class="nav-link"
-                            href="{{ route('admin.blog-category.index') }}">Category</a></li>
-                    <li class="{{ setSidebarActive(['admin.blog.*']) }}"><a class="nav-link"
-                            href="{{ route('admin.blog.index') }}">Blog List</a></li>
-                    <li class="{{ setSidebarActive(['admin.blog-section-setting.*']) }}"><a class="nav-link"
-                            href="{{ route('admin.blog-section-setting.index') }}">Section
-                            Setting</a></li>
-                </ul>
+            <li class="nav-item {{ setSidebarActive(['admin.announcements.*']) }}">
+                <a href="{{ route('admin.announcements.index') }}" class="nav-link"><i class="fas fa-columns"></i><span>Data
+                        Pengumuman</span></a>
             </li>
-
 
             <li
                 class="nav-item dropdown {{ setSidebarActive(['admin.gallery-album.*', 'admin.gallery.*', 'admin.gallery-section-setting.*']) }}">
@@ -122,8 +110,7 @@
 
             <li
                 class="nav-item dropdown {{ setSidebarActive(['admin.blog-category.*', 'admin.blog.*', 'admin.blog-section-setting.*']) }}">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
-                        class="fas fa-columns"></i>
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
                     <span>Berita (Pake Blog)</span>
                 </a>
                 <ul class="dropdown-menu" style="display: none;">

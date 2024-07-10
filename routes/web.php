@@ -33,6 +33,7 @@ use App\Http\Controllers\Admin\SeoSettingController;
 use App\Http\Controllers\Admin\ServiceSectionSettingController;
 use App\Http\Controllers\Admin\SkillItemController;
 use App\Http\Controllers\Admin\SkillSectionSettingController;
+use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Artisan;
@@ -68,6 +69,7 @@ require __DIR__ . '/auth.php';
 
 Route::get('dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
 
+Route::get('/announcements/{announcement}', [AnnouncementController::class, 'show'])->name('announcements.show');
 
 /** Admin Route**/
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
@@ -129,4 +131,5 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::resource('gallery-section-setting', GallerySectionSettingController::class);
 
     Route::resource('teachers', TeacherController::class);
+    Route::resource('announcements', AnnouncementController::class)->except('show');
 });

@@ -34,9 +34,9 @@
     <section id="fasilitas" class="services section">
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
-            <h2>{{ $fasilitasSection->title }}</h2>
+            <h2>{{ $fasilitasSection?->title }}</h2>
             <p>
-                {!! $fasilitasSection->sub_title !!}
+                {!! $fasilitasSection?->sub_title !!}
             </p>
         </div>
         <!-- End Section Title -->
@@ -71,34 +71,17 @@
                     </div>
                 </div>
                 <div class="row my-5">
-                    <div class="col-lg-4 mb-4 d-flex align-items-start border-end">
-                        <div class="w-100">
-                            <h4 class="m-0 h5 text-white">{title}</h4>
-                            <p class="text-white opacity-50">{deskripsi}</p>
-                            <a href="pengumuman-detail.html" class="readmore stretched-link">
-                                <span style="color: white">Read More</span><i class="bi bi-arrow-right"></i>
-                            </a>
+                    @foreach ($pengumuman as $p)
+                        <div class="col-lg-4 mb-4 d-flex align-items-start">
+                            <div class="w-100">
+                                <h4 class="m-0 h5 text-white">{{ $p->title }}</h4>
+                                <p class="text-white opacity-50">{!! $p->content !!}</p>
+                                <a href="{{ route('announcements.show', $p->id) }}" class="readmore stretched-link">
+                                    <span style="color: white">Read More</span><i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 mb-4 d-flex align-items-start border-end">
-                        <div class="w-100">
-                            <h4 class="m-0 h5 text-white">{title}</h4>
-                            <p class="text-white opacity-50">{deskripsi}</p>
-                            <a href="pengumuman-detail.html" class="readmore stretched-link">
-                                <span style="color: white">Read More</span><i class="bi bi-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-4 d-flex align-items-start">
-                        <div class="w-100">
-                            <h4 class="m-0 h5 text-white">{title}</h4>
-                            <p class="text-white opacity-50">{deskripsi}</p>
-                            <a href="pengumuman-detail.html" class="readmore stretched-link">
-                                <span style="color: white">Read More</span><i class="bi bi-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Tambahkan kolom lainnya di sini jika diperlukan -->
+                    @endforeach
                 </div>
             </div>
         </div>
