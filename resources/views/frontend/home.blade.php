@@ -100,34 +100,34 @@
             <div class="container">
                 <div class="swiper init-swiper">
                     <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "navigation": {
-                "nextEl": ".js-custom-next",
-                "prevEl": ".js-custom-prev"
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 1,
-                  "spaceBetween": 40
-                },
-                "1200": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 40
-                }
-              }
-            }
-          </script>
+                        {
+                        "loop": true,
+                        "speed": 600,
+                        "autoplay": {
+                            "delay": 5000
+                        },
+                        "slidesPerView": "auto",
+                        "pagination": {
+                            "el": ".swiper-pagination",
+                            "type": "bullets",
+                            "clickable": true
+                        },
+                        "navigation": {
+                            "nextEl": ".js-custom-next",
+                            "prevEl": ".js-custom-prev"
+                        },
+                        "breakpoints": {
+                            "320": {
+                            "slidesPerView": 1,
+                            "spaceBetween": 40
+                            },
+                            "1200": {
+                            "slidesPerView": 3,
+                            "spaceBetween": 40
+                            }
+                        }
+                        }
+                    </script>
                     <button class="navigation-prev js-custom-prev">
                         <i class="bi bi-arrow-left-short"></i>
                     </button>
@@ -160,8 +160,8 @@
     <section id="berita" class="recent-posts section">
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
-            <h2>{{ $pengaturanBerita->title }}</h2>
-            <p>{!! $pengaturanBerita->sub_title !!}</p>
+            <h2>{{ $pengaturanBerita?->title }}</h2>
+            <p>{!! $pengaturanBerita?->sub_title !!}</p>
         </div>
         <!-- End Section Title -->
 
