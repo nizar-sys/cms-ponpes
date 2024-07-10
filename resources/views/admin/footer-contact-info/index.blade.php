@@ -6,7 +6,7 @@
         <div class="section-header-back">
             <a href="{{ url('/dashboard') }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
         </div>
-        <h1>Footer Contact Information</h1>
+        <h1>Informasi Kontak</h1>
 
     </div>
 
@@ -16,7 +16,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Update Footer Contact Information</h4>
+                        <h4>Ubah Informasi Kontak</h4>
                     </div>
                     <div class="card-body">
                         <form action="{{ route('admin.footer-contact-info.update', 1) }}" method="POST" enctype="multipart/form-data">
@@ -25,7 +25,7 @@
 
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">
-                                    Address
+                                    Alamat
                                 </label>
                                 <div class="col-sm-12 col-md-7">
                                     <input type="text" name="address" class="form-control" value="{{ $contact?->address }}">
@@ -34,7 +34,7 @@
 
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">
-                                    Phone
+                                    No HP
                                 </label>
                                 <div class="col-sm-12 col-md-7">
                                     <input type="text" name="phone" class="form-control" value="{{ $contact?->phone }}">
