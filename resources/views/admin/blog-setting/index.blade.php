@@ -6,7 +6,7 @@
         <div class="section-header-back">
             <a href="{{ url('/dashboard') }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
         </div>
-        <h1>Blog Section Setting</h1>
+        <h1>Pengaturan Berita</h1>
 
     </div>
 
@@ -16,7 +16,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Update Blog Section </h4>
+                        <h4>Ubah Pengaturan Berita</h4>
                     </div>
                     <div class="card-body">
                         <form action="{{ route('admin.blog-section-setting.update' ,1) }}" method="POST" enctype="multipart/form-data">
@@ -24,7 +24,7 @@
                             @method('PUT')
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">
-                                    Title
+                                    Judul
                                 </label>
                                 <div class="col-sm-12 col-md-7">
                                     <input type="text" name="title" class="form-control" value="{{ $blogTitle?->title }}">
@@ -33,7 +33,7 @@
 
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">
-                                    Sub Title
+                                    Deksripsi
                                 </label>
                                 <div class="col-sm-12 col-md-7">
                                     <textarea name="sub_title" class="summernote" style="height: 100px">{{ $blogTitle?->sub_title }}</textarea>

@@ -6,7 +6,7 @@
         <div class="section-header-back">
             <a href="{{ url('/dashboard') }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
         </div>
-        <h1>Edit Blog</h1>
+        <h1>Data Berita</h1>
 
     </div>
 
@@ -16,7 +16,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Edit Blog</h4>
+                        <h4>Ubah Data Berita</h4>
                     </div>
                     <div class="card-body">
                         <form action="{{ route('admin.blog.update', $blog->id) }}" method="POST" enctype="multipart/form-data">
@@ -24,7 +24,7 @@
                             @method('PUT')
 
                             <div class="form-group row mb-4">
-                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Image</label>
+                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Poster</label>
                                 <div class="col-sm-12 col-md-7">
                                     <div id="image-preview" class="image-preview">
                                         <label for="image-upload" id="image-label">Choose File</label>
@@ -35,7 +35,7 @@
 
                             <div class="form-group row mb-4">
                                 <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">
-                                    Title
+                                    Judul
                                 </label>
                                 <div class="col-sm-12 col-md-7">
                                     <input type="text" name="title" class="form-control" value="{{ $blog->title }}">
@@ -43,7 +43,7 @@
                             </div>
 
                             <div class="form-group row mb-4">
-                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Category</label>
+                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Kategori Berita</label>
                                 <div class="col-sm-12 col-md-7">
                                     <select class="form-control selectric" name="category">
                                         <option>Select</option>
@@ -55,7 +55,7 @@
                             </div>
 
                             <div class="form-group row mb-4">
-                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Description</label>
+                                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Deskripsi/Konten</label>
                                 <div class="col-sm-12 col-md-7">
                                     <textarea name="description" class="summernote">{!! $blog->description !!}</textarea>
                                 </div>

@@ -6,7 +6,7 @@
             <div class="section-header-back">
                 <a href="{{ url('/dashboard') }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
             </div>
-            <h1>Gallery</h1>
+            <h1>Data Galeri</h1>
 
         </div>
 
@@ -16,7 +16,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>All Gallery</h4>
+                            <h4>Data Galeri</h4>
                             <div class="card-header-action">
                                 <a href="{{ route('admin.gallery.create') }}" class="btn btn-success">
                                     Tambah Data
@@ -24,10 +24,6 @@
                                 </a>
                             </div>
                         </div>
-                        {{-- <div class="card-body">
-                        {{ $dataTable->table() }}
-
-                </div> --}}
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table">

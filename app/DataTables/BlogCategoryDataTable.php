@@ -75,13 +75,14 @@ class BlogCategoryDataTable extends DataTable
         return [
            
             Column::make('id'),
-            Column::make('name'), 
-            Column::make('slug'), 
+            Column::make('name')->title('Nama Kategori'),
+            Column::make('slug')->title('Slug'),
             Column::computed('action')
             ->exportable(false)
             ->printable(false)
             ->width(200)
-            ->addClass('text-center'),
+            ->addClass('text-center')
+            ->title('Aksi'),
         ];
     }
 

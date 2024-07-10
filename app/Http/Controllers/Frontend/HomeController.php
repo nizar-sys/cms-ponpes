@@ -8,8 +8,10 @@ use App\Models\About;
 use App\Models\Album;
 use App\Models\Announcement;
 use App\Models\Blog;
+use App\Models\BlogCategory;
 use App\Models\BlogSectionSetting;
 use App\Models\ContactSectionSetting;
+use App\Models\Gallery;
 use App\Models\GallerySectionSetting;
 use App\Models\Hero;
 use App\Models\PortfolioItem;
@@ -27,13 +29,16 @@ use function Ramsey\Uuid\v1;
 class HomeController extends Controller
 {
     public function index()
-    {   
+    {
         $heroes = Hero::latest()->get();
         $fasilitasSection = ServiceSectionSetting::first();
         $fasilitas = Service::latest()->get();
         $pengumuman = Announcement::latest()->get();
+        $galleries = Gallery::latest()->get();
+        $pengaturanBerita = BlogSectionSetting::first();
+        $beritaTerbaru = Blog::latest()->limit(3)->get();
 
-        return view('frontend.home', compact('heroes', 'fasilitasSection', 'fasilitas', 'pengumuman'));
+        return view('frontend.home', compact('heroes', 'fasilitasSection', 'fasilitas', 'pengumuman', 'galleries', 'pengaturanBerita', 'beritaTerbaru'));
     }
 
     public function about()
@@ -60,7 +65,7 @@ class HomeController extends Controller
 
         return view('frontend.krf', compact('krf', 'krfimage'));
     }
-    
+
     public function showGallery($id)
     {
         $album = Album::findOrFail($id)->load('images');
@@ -74,7 +79,7 @@ class HomeController extends Controller
 
         return view('frontend.portfolio', compact('portfolioItems', 'portfolioSetting'));
     }
-    
+
     public function showPortfolio($id)
     {
         $portfolio = PortfolioItem::findOrFail($id)->load('category');
@@ -83,18 +88,18 @@ class HomeController extends Controller
 
     public function showBlog($id)
     {
-        $blog = Blog::with([
+        $berita = Blog::with([
             'comments' => function ($query) {
                 $query->with('childrens')->latest()->whereNull('parent_id');
             },
         ])->findOrFail($id);
 
-        $previousPost = Blog::where('id', '<', $blog->id)->orderBy('id', 'desc')->first();
-        $nextPost = Blog::where('id', '>', $blog->id)->orderBy('id', 'asc')->first();
+        $latestPosts = Blog::latest()->limit(5)->get()
+            ->except($berita->id);
 
-        $latestPosts = Blog::latest()->get();
+        $kategoriBerita = BlogCategory::latest()->withCount('blogs')->get();
 
-        return view('frontend.blog-details', compact('blog', 'previousPost', 'nextPost', 'latestPosts'));
+        return view('frontend.blog-details', compact('berita', 'latestPosts', 'kategoriBerita'));
     }
 
     public function blog(Request $request)

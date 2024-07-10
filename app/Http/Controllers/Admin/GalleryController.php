@@ -25,14 +25,14 @@ class GalleryController extends Controller
     {
         $request->validate([
             'image' => ['required','image','max:50000'],
-            'album_id' => ['required','numeric'] ,
+            'title' => ['required'] ,
         ]);
 
         $imagePath = handleUpload('image');
 
         $gallery = new Gallery();
         $gallery->image = $imagePath;
-        $gallery->album_id = $request->album_id;
+        $gallery->title = $request->title;
         $gallery->save();
 
         toastr()->success('Gallery Created Successfully !','Success'); 
@@ -51,7 +51,7 @@ class GalleryController extends Controller
     {
         $request->validate([
             'image' => ['image','max:50000'],
-            'album_id' => ['required','numeric'] ,
+            'title' => ['required'] ,
         ]);
 
         $gallery =  Gallery::findOrFail($id);
@@ -59,7 +59,7 @@ class GalleryController extends Controller
         $imagePath = handleUpload('image', $gallery);
 
         $gallery->image = (!empty($imagePath) ? $imagePath : $gallery->image);
-        $gallery->album_id = $request->album_id;
+        $gallery->title = $request->title;
         $gallery->save();
 
         toastr()->success('Gallery Updated Successfully !','Success'); 

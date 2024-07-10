@@ -74,8 +74,8 @@ class CategoryDataTable extends DataTable
     {
         return [ 
             Column::make('id')->width(100),
-            Column::make('name'), 
-            Column::make('slug'), 
+            Column::make('name')->title('Nama Kategori'),
+            Column::make('slug')->title('Slug'),
             Column::computed('action')
             ->exportable(false)
             ->printable(false)

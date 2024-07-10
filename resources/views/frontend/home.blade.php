@@ -135,91 +135,19 @@
                         <i class="bi bi-arrow-right-short"></i>
                     </button>
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="service-item">
-                                <div class="service-item-contents">
-                                    <a href="#">
-                                        <span class="service-item-category">{title}</span>
-                                        <h2 class="service-item-title"></h2>
-                                    </a>
+                        @foreach ($galleries as $gallery)
+                            <div class="swiper-slide">
+                                <div class="service-item">
+                                    <div class="service-item-contents">
+                                        <a href="#">
+                                            <span class="service-item-category">{{ $gallery->title }}</span>
+                                            <h2 class="service-item-title"></h2>
+                                        </a>
+                                    </div>
+                                    <img src="{{ asset($gallery->image) }}" alt="Image" class="img-fluid" />
                                 </div>
-                                <img src="{{ asset('/ponpes') }}/assets/img/dummy-guru.jpg" alt="Image"
-                                    class="img-fluid" />
                             </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="service-item">
-                                <div class="service-item-contents">
-                                    <a href="#">
-                                        <span class="service-item-category">{title}</span>
-                                        <h2 class="service-item-title"></h2>
-                                    </a>
-                                </div>
-                                <img src="{{ asset('/ponpes') }}/assets/img/dummy-guru.jpg" alt="Image"
-                                    class="img-fluid" />
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="service-item">
-                                <div class="service-item-contents">
-                                    <a href="#">
-                                        <span class="service-item-category">{title}</span>
-                                        <h2 class="service-item-title"></h2>
-                                    </a>
-                                </div>
-                                <img src="{{ asset('/ponpes') }}/assets/img/dummy-guru.jpg" alt="Image"
-                                    class="img-fluid" />
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="service-item">
-                                <div class="service-item-contents">
-                                    <a href="#">
-                                        <span class="service-item-category">{title}</span>
-                                        <h2 class="service-item-title"></h2>
-                                    </a>
-                                </div>
-                                <img src="{{ asset('/ponpes') }}/assets/img/dummy-guru.jpg" alt="Image"
-                                    class="img-fluid" />
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="service-item">
-                                <div class="service-item-contents">
-                                    <a href="#">
-                                        <span class="service-item-category">{title}</span>
-                                        <h2 class="service-item-title"></h2>
-                                    </a>
-                                </div>
-                                <img src="{{ asset('/ponpes') }}/assets/img/dummy-guru.jpg" alt="Image"
-                                    class="img-fluid" />
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="service-item">
-                                <div class="service-item-contents">
-                                    <a href="#">
-                                        <span class="service-item-category">{title}</span>
-                                        <h2 class="service-item-title"></h2>
-                                    </a>
-                                </div>
-                                <img src="{{ asset('/ponpes') }}/assets/img/dummy-guru.jpg" alt="Image"
-                                    class="img-fluid" />
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="service-item">
-                                <div class="service-item-contents">
-                                    <a href="#">
-                                        <span class="service-item-category">{title}</span>
-                                        <h2 class="service-item-title"></h2>
-                                    </a>
-                                </div>
-                                <img src="{{ asset('/ponpes') }}/assets/img/dummy-guru.jpg" alt="Image"
-                                    class="img-fluid" />
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
@@ -232,108 +160,39 @@
     <section id="berita" class="recent-posts section">
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
-            <h2>Berita</h2>
-            <p>Necessitatibus eius consequatur</p>
+            <h2>{{ $pengaturanBerita->title }}</h2>
+            <p>{!! $pengaturanBerita->sub_title !!}</p>
         </div>
         <!-- End Section Title -->
 
         <div class="container">
             <div class="row gy-5">
-                <div class="col-xl-4 col-md-6">
-                    <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="100">
-                        <div class="post-img position-relative overflow-hidden">
-                            <img src="{{ asset('/ponpes') }}/assets/img/blog/blog-1.jpg" class="img-fluid"
-                                alt="" />
-                            <span class="post-date">{created_at}</span>
-                        </div>
-
-                        <div class="post-content d-flex flex-column">
-                            <h3 class="post-title">{title}</h3>
-
-                            <div class="meta d-flex align-items-center">
-                                <div class="d-flex align-items-center">
-                                    <i class="bi bi-person"></i>
-                                    <span class="ps-2">{author}</span>
-                                </div>
-                                <span class="px-3 text-black-50">/</span>
-                                <div class="d-flex align-items-center">
-                                    <i class="bi bi-folder2"></i>
-                                    <span class="ps-2">{Category}</span>
-                                </div>
+                @foreach ($beritaTerbaru as $berita)
+                    <div class="col-xl-4 col-md-6">
+                        <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="100">
+                            <div class="post-img position-relative overflow-hidden">
+                                <img src="{{ asset($berita->image) }}" class="img-fluid" alt="" />
+                                <span class="post-date">{{ $berita->created_at }}</span>
                             </div>
 
-                            <hr />
+                            <div class="post-content d-flex flex-column">
+                                <h3 class="post-title">{{ $berita->title }}</h3>
 
-                            <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i
-                                    class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- End post item -->
-
-                <div class="col-xl-4 col-md-6">
-                    <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="200">
-                        <div class="post-img position-relative overflow-hidden">
-                            <img src="{{ asset('/ponpes') }}/assets/img/blog/blog-2.jpg" class="img-fluid"
-                                alt="" />
-                            <span class="post-date">July 17</span>
-                        </div>
-
-                        <div class="post-content d-flex flex-column">
-                            <h3 class="post-title">{title}</h3>
-
-                            <div class="meta d-flex align-items-center">
-                                <div class="d-flex align-items-center">
-                                    <i class="bi bi-person"></i>
-                                    <span class="ps-2">{author}</span>
-                                    <span class="px-3 text-black-50">/</span>
+                                <div class="meta d-flex align-items-center">
                                     <div class="d-flex align-items-center">
                                         <i class="bi bi-folder2"></i>
-                                        <span class="ps-2">{Category}</span>
+                                        <span class="ps-2">{{ $berita->getCategory->name }}</span>
                                     </div>
                                 </div>
+
+                                <hr />
+
+                                <a href="{{ route('show.blog', $berita->id) }}" class="readmore stretched-link"><span>Read
+                                        More</span><i class="bi bi-arrow-right"></i></a>
                             </div>
-
-                            <hr />
-
-                            <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i
-                                    class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
-                </div>
-                <!-- End post item -->
-
-                <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="post-item position-relative h-100">
-                        <div class="post-img position-relative overflow-hidden">
-                            <img src="{{ asset('/ponpes') }}/assets/img/blog/blog-3.jpg" class="img-fluid"
-                                alt="" />
-                            <span class="post-date">{created_at}</span>
-                        </div>
-
-                        <div class="post-content d-flex flex-column">
-                            <h3 class="post-title">{title}</h3>
-
-                            <div class="meta d-flex align-items-center">
-                                <div class="d-flex align-items-center">
-                                    <i class="bi bi-person"></i>
-                                    <span class="ps-2">{author}</span>
-                                    <span class="px-3 text-black-50">/</span>
-                                    <div class="d-flex align-items-center">
-                                        <i class="bi bi-folder2"></i>
-                                        <span class="ps-2">{Category}</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <hr />
-
-                            <a href="blog-details.html" class="readmore stretched-link"><span>Read More</span><i
-                                    class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- End post item -->
+                @endforeach
             </div>
         </div>
     </section>

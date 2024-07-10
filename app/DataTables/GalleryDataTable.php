@@ -25,12 +25,6 @@ class GalleryDataTable extends DataTable
             ->addColumn('image', function ($query) {
                 return '<img style="width:70px" src="' . asset($query->image) . '"></img>';
             })
-            ->addColumn('created_at', function ($query) {
-                return date('d-m-Y', strtotime($query->created_at));
-            })
-            ->addColumn('album', function ($query) {
-                return $query->album->name;
-            })
             ->addColumn('action', function ($query) {
                 return '<a href="' . route('admin.gallery.edit', $query->id) . '" class="btn btn-primary"><i class="fas fa-edit"></i></a>
                 <a href="' . route('admin.gallery.destroy', $query->id) . '" class="btn btn-danger delete-item"><i class="fas fa-trash"></i></a>';
@@ -76,14 +70,14 @@ class GalleryDataTable extends DataTable
     {
         return [
             Column::make('id')->width(100),
-            Column::make('image')->width(100),
-            Column::make('album'),
-            Column::make('created_at'),
+            Column::make('image')->width(100)->title('Gambar'),
+            Column::make('title')->title('Judul/deskripsi'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
                 ->width(200)
-                ->addClass('text-center'),
+                ->addClass('text-center')
+                ->title('Aksi'),
         ];
     }
 

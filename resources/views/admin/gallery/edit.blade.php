@@ -6,7 +6,7 @@
             <div class="section-header-back">
                 <a href="{{ url('/dashboard') }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
             </div>
-            <h1>Gallery</h1>
+            <h1>Galeri</h1>
 
         </div>
 
@@ -16,11 +16,10 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Edit Gallery</h4>
+                            <h4>Ubah Galeri</h4>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('admin.gallery.update', $gallery->id) }}" method="POST"
-                                enctype="multipart/form-data">
+                            <form action="{{ route('admin.gallery.update', $gallery->id) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
 
@@ -35,15 +34,10 @@
                                 </div>
 
                                 <div class="form-group row mb-4">
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Album</label>
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Judul /
+                                        Deskripsi</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <select class="form-control selectric" name="album_id">
-                                            <option>Select</option>
-                                            @foreach ($albums as $album)
-                                                <option {{ $album->id == $gallery->album_id ? 'selected' : '' }}
-                                                    value="{{ $album->id }}">{{ $album->name }}</option>
-                                            @endforeach
-                                        </select>
+                                        <input type="text" class="form-control" name="title" required value="{{ $gallery->title }}">
                                     </div>
                                 </div>
 
