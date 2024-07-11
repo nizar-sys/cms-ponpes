@@ -75,7 +75,7 @@
                         <div class="col-lg-4 mb-4 d-flex align-items-start">
                             <div class="w-100">
                                 <h4 class="m-0 h5 text-white">{{ $p->title }}</h4>
-                                <p class="text-white opacity-50">{{ \Illuminate\Support\Str::limit($p->content, 30) }}</p>
+                                <p class="text-white opacity-50">{!! \Illuminate\Support\Str::limit($p->content, 30) !!}</p>
                                 <a href="{{ route('announcements.show', $p->id) }}" class="readmore stretched-link">
                                     <span style="color: white">Read More</span><i class="bi bi-arrow-right"></i>
                                 </a>
