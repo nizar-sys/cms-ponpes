@@ -31,6 +31,7 @@ class TeacherController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'image' => 'required',
             'name' => 'required',
             'nik' => 'required|unique:teachers',
             'role' => 'required',
