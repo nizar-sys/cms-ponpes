@@ -52,7 +52,7 @@
                     <li><a href="{{ route('teachers.all') }}">Data Guru</a></li>
                     <li><a href="{{ url('/', []) }}/#pengumuman">Pengumuman</a></li>
                     <li><a href="{{ url('/', []) }}/#galeri">Galeri</a></li>
-                    <li><a href="{{ url('/blog', []) }}">Berita</a></li>
+                    <li><a href="{{ url('/', []) }}/#berita">Berita</a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
@@ -88,7 +88,7 @@
                             <li><a href="{{ route('teachers.all') }}">Data Guru</a></li>
                             <li><a href="{{ url('/', []) }}/#pengumuman">Pengumuman</a></li>
                             <li><a href="{{ url('/', []) }}/#galeri">Galeri</a></li>
-                            <li><a href="{{ url('/blog', []) }}">Berita</a></li>
+                            <li><a href="{{ url('/', []) }}/#berita">Berita</a></li>
                         </ul>
                     </div>
                 </div>

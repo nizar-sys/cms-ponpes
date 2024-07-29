@@ -39,7 +39,7 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $announcement->title }}</td>
-                                            <td>{{ \Illuminate\Support\Str::limit($announcement->content, 10) }}</td>
+                                            <td>{!! \Illuminate\Support\Str::limit($announcement->content, 10) !!}</td>
                                             <td>{{ $announcement->author->name }}</td>
                                             <td>
                                                 <a href="{{ route('admin.announcements.edit', $announcement->id) }}"
