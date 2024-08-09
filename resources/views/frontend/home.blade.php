@@ -30,36 +30,6 @@
     </section>
     <!-- /Hero Section -->
 
-    <!-- Services Section -->
-    <section id="fasilitas" class="services section">
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-            <h2>{{ $fasilitasSection?->title }}</h2>
-            <p>
-                {!! $fasilitasSection?->sub_title !!}
-            </p>
-        </div>
-        <!-- End Section Title -->
-        <div class="content">
-            <div class="container">
-                <div class="row g-0">
-                    @foreach ($fasilitas as $f)
-                        <div class="col-lg-3 col-md-6">
-                            <div class="service-item">
-                                <img src="{{ asset($f->image) }}" class="img-fluid" />
-                                <div class="service-item-icon"></div>
-                                <div class="service-item-content">
-                                    <h3 class="service-heading">{{ $f->name }}</h3>
-                                    {!! $f->description !!}
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- /Services Section -->
 
     <!-- About Section -->
     <section id="pengumuman" class="about section">
@@ -70,15 +40,73 @@
                         <h2 class="content-title mb-4 text-center">Pengumuman</h2>
                     </div>
                 </div>
-                <div class="row my-5">
+                <div class="row my-5 d-flex flex-wrap">
                     @foreach ($pengumuman as $p)
-                        <div class="col-lg-4 mb-4 d-flex align-items-start">
+                        <div class="col-lg-4 mt-5">
                             <div class="w-100">
                                 <h4 class="m-0 h5 text-white">{{ $p->title }}</h4>
                                 <p class="text-white opacity-50">{!! \Illuminate\Support\Str::limit($p->content, 30) !!}</p>
-                                <a href="{{ route('announcements.show', $p->id) }}" class="readmore stretched-link">
-                                    <span style="color: white">Read More</span><i class="bi bi-arrow-right"></i>
-                                </a>
+                            </div>
+                            <a href="{{ route('announcements.show', $p->id) }}" class="readmore stretched-link">
+                                <span style="color: white">Read More</span><i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Services Section -->
+    <section id="fasilitas" class="services section">
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>{{ $fasilitasSection?->title }}</h2>
+            <p>{!! $fasilitasSection?->sub_title !!}</p>
+        </div>
+        <!-- End Section Title -->
+
+        <div class="content">
+            <div class="container">
+                <div class="row g-0">
+                    @foreach ($fasilitas as $f)
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="service-item">
+                                <img src="{{ asset($f->image) }}" class="img-fluid" alt="{{ $f->name }}" />
+                                <div class="service-item-icon"></div>
+                                <div class="service-item-content">
+                                    <h3 class="service-heading">{{ $f->name }}</h3>
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal"
+                                        data-bs-target="#fasilitasModal{{ $f->id }}">
+                                        Lihat Detail
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="fasilitasModal{{ $f->id }}" tabindex="-1"
+                            aria-labelledby="fasilitasModalLabel{{ $f->id }}" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="fasilitasModalLabel{{ $f->id }}">
+                                            {{ $f->name }}</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img src="{{ asset($f->image) }}" class="img-fluid mb-4"
+                                            alt="{{ $f->name }}" />
+                                        {!! $f->description !!}
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Tutup</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     @endforeach
@@ -86,6 +114,9 @@
             </div>
         </div>
     </section>
+
+    <!-- /Services Section -->
+
 
     <!-- Services 2 Section -->
     <section id="galeri" class="services-2 section dark-background">
@@ -187,7 +218,8 @@
 
                                 <hr />
 
-                                <a href="{{ route('show.blog', $berita->id) }}" class="readmore stretched-link"><span>Read
+                                <a href="{{ route('show.blog', $berita->id) }}"
+                                    class="readmore stretched-link"><span>Read
                                         More</span><i class="bi bi-arrow-right"></i></a>
                             </div>
                         </div>

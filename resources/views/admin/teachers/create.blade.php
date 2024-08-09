@@ -37,7 +37,8 @@
                                         Nama Guru
                                     </label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" name="name" class="form-control">
+                                        <input type="text" name="name" class="form-control"
+                                            value="{{ old('name') }}">
                                     </div>
                                 </div>
 
@@ -46,7 +47,48 @@
                                         NIK
                                     </label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="number" name="nik" class="form-control">
+                                        <input type="number" name="nik" class="form-control"
+                                            value="{{ old('nik') }}">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row mb-4">
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">
+                                        Tempat Tanggal Lahir (TTL)
+                                    </label>
+                                    <div class="col-sm-12 col-md-7">
+                                        <input type="text" name="ttl" class="form-control"
+                                            value="{{ old('ttl') }}">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row mb-4">
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">
+                                        No. Telepon
+                                    </label>
+                                    <div class="col-sm-12 col-md-7">
+                                        <input type="text" name="no_telp" class="form-control"
+                                            value="{{ old('no_telp') }}">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row mb-4">
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">
+                                        Email
+                                    </label>
+                                    <div class="col-sm-12 col-md-7">
+                                        <input type="email" name="email" class="form-control"
+                                            value="{{ old('email') }}">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row mb-4">
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">
+                                        Pendidikan Terakhir
+                                    </label>
+                                    <div class="col-sm-12 col-md-7">
+                                        <input type="text" name="educational" class="form-control"
+                                            value="{{ old('educational') }}">
                                     </div>
                                 </div>
 
@@ -55,7 +97,18 @@
                                         Jabatan
                                     </label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" name="role" class="form-control">
+                                        <input type="text" name="role" class="form-control"
+                                            value="{{ old('role') }}">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row mb-4">
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">
+                                        Keahlian
+                                    </label>
+                                    <div class="col-sm-12 col-md-7">
+                                        <input type="text" name="expertise" class="form-control"
+                                            value="{{ old('expertise') }}">
                                     </div>
                                 </div>
 
@@ -70,6 +123,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 @endsection

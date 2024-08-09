@@ -31,32 +31,53 @@ class TeacherController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'image' => 'required',
-            'name' => 'required',
-            'nik' => 'required|unique:teachers',
-            'role' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'name' => 'required|string|max:255',
+            'nik' => 'required|unique:teachers|numeric',
+            'ttl' => 'required|string|max:255',
+            'no_telp' => 'required|string|max:15',
+            'email' => 'required|email|unique:teachers,email',
+            'educational' => 'required|string|max:255',
+            'role' => 'required|string|max:255',
+            'expertise' => 'required|string|max:255',
         ], [
+            'image.required' => 'Foto guru wajib diisi.',
+            'image.image' => 'File harus berupa gambar.',
+            'image.mimes' => 'Format gambar harus jpeg, png, jpg, gif, atau svg.',
             'name.required' => 'Nama guru wajib diisi.',
             'nik.required' => 'NIK guru wajib diisi.',
-            'role.required' => 'Jabatan guru wajib diisi.',
             'nik.unique' => 'NIK guru sudah terdaftar.',
+            'ttl.required' => 'Tempat Tanggal Lahir wajib diisi.',
+            'no_telp.required' => 'No. Telepon wajib diisi.',
+            'email.required' => 'Email guru wajib diisi.',
+            'email.unique' => 'Email guru sudah terdaftar.',
+            'educational.required' => 'Pendidikan terakhir wajib diisi.',
+            'role.required' => 'Jabatan guru wajib diisi.',
+            'expertise.required' => 'Keahlian guru wajib diisi.',
         ]);
 
         if ($request->hasFile('image')) {
             $imagePath = handleUpload('image');
+        } else {
+            $imagePath = null;
         }
-
 
         $teacher = new Teacher();
         $teacher->name = $request->name;
         $teacher->nik = $request->nik;
+        $teacher->ttl = $request->ttl;
+        $teacher->no_telp = $request->no_telp;
+        $teacher->email = $request->email;
+        $teacher->educational = $request->educational;
         $teacher->role = $request->role;
+        $teacher->expertise = $request->expertise;
         $teacher->image = $imagePath;
         $teacher->save();
 
         toastr()->success('Data guru berhasil ditambahkan.');
         return redirect(route('admin.teachers.index'));
     }
+
 
     /**
      * Display the specified resource.
